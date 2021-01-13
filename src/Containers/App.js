@@ -175,7 +175,10 @@ loginHandler = () =>{
      // (if using radium) <StyleRoot /*we need to wrap the whole app component in StyleRoot so we avoid a Radium plugin error when using "@media" in the Persons Component*/> 
         <Auxiliary>
             <button onClick={() =>{this.setState({showCockpit: !this.state.showCockpit})}}>Toggle Cockpit</button>
-            <AuthContext.Provider value= {{authenticated:this.state.authenticated}}>
+            <AuthContext.Provider 
+               value= {{authenticated:this.state.authenticated,
+                        login: this.
+               }}>
               {this.state.showCockpit ?
               <Cockpit title={this.props.appTitle}
                       showPeople={this.state.showPeople}
