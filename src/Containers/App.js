@@ -144,6 +144,7 @@ loginHandler = () =>{
         people = <Persons persons={this.state.persons}
                      clicked={this.deletePersonHandler}
                      changed={this.nameChangedHandler}
+                     isAuthenticated={this.state.authenticated}
                 />
              
             /* {
@@ -177,14 +178,13 @@ loginHandler = () =>{
             <button onClick={() =>{this.setState({showCockpit: !this.state.showCockpit})}}>Toggle Cockpit</button>
             <AuthContext.Provider 
                value= {{authenticated:this.state.authenticated,
-                        login: this.
+                        login: this.loginHandler
                }}>
               {this.state.showCockpit ?
               <Cockpit title={this.props.appTitle}
                       showPeople={this.state.showPeople}
                       personsLength={this.state.persons.length}   
                       clicked={this.tooglePeopleHandler}
-                      login={this.loginHandler}
               /> : null
               } 
               {/*Option 1: use a variable to render content*/}  

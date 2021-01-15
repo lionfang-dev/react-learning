@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Auxiliary from '../../hoc/Auxiliary';
 import WithClass from '../../hoc/withClass';
 import classes from './Person.css'
+import AuthContext from '../../../context/auth-context';
 
 //styled-components methods return React components when NOT using CSS modules
 // const StyledDiv = styled.div` 
@@ -65,6 +66,9 @@ const person = (props) => {
         //Using styled-components and CSS Modules
         //<div className={classes.Person}>
         <Auxiliary> 
+            <AuthContext.Consumer>
+                { (context) => context.authenticated ? <p>Authenticated!</p> : <p>Please log in</p>}
+            </AuthContext.Consumer>
             <p onClick={props.click}>I'm {props.name}. I'm {props.age} years old.</p>
             <Children children = {props.children}/>
             <input 

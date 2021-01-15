@@ -1,6 +1,7 @@
 import React,{PureComponent} from 'react'; //PureComponent does the checking automatically of all props so it's not necessary to override shouldComponentUpdate
 import Person from './Person/Person'
 
+
 class Persons extends PureComponent{
     //Lifecycle methods *********
     // static getDerivedStateFromProps(props, state){
@@ -33,14 +34,16 @@ class Persons extends PureComponent{
 
     render(){
         console.log('[Persons.js] rendering....')
-        return this.props.persons.map((person, index) => {
-            return <Person name={person.name} 
-                          age={person.age}
-                          click={() => this.props.clicked(index)}
-                          key={person.id}// needs to have a "key" prop to avoid React warning
-                          onChange={(event) => this.props.changed(event, person.id)}
-                          />
-          });
+        return  this.props.persons.map((person, index) => 
+                {
+                    return <Person name={person.name} 
+                                age={person.age}
+                                click={() => this.props.clicked(index)}
+                                key={person.id}// needs to have a "key" prop to avoid React warning
+                                onChange={(event) => this.props.changed(event, person.id)}/>
+                })
+           
+
     }
 }
 // const persons = props => props.persons.map((person, index) => {
